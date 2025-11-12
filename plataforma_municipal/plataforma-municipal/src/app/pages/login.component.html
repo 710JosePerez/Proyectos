@@ -1,0 +1,50 @@
+<div class="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+    style="background-image: url('https://agn.gt/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-15-at-13.44.00.jpeg');">
+    <div class="w-full max-w-sm space-y-10 bg-white/80 backdrop-blur-md p-8 rounded-xl shadow-xl">
+        <div>
+            <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900">¡Bienvenido!</h2>
+            <h3 class="mt-2 text-center text-gray-700 text-base">Inicia sesión con tu DPI y contraseña</h3>
+        </div>
+
+        <form (ngSubmit)="iniciarSesion()" class="space-y-6">
+            <div>
+                <div class="col-span-2">
+                    <input [(ngModel)]="dpi" name="dpi" type="text" required placeholder="DPI"
+                        class="block w-full rounded-t-md bg-white px-3 py-2 text-base text-gray-900 outline outline-1 outline-gray-300 placeholder:text-gray-400">
+                </div>
+                <div class="-mt-px">
+                    <input [(ngModel)]="password" name="password" type="password" required placeholder="Contraseña"
+                        class="block w-full rounded-b-md bg-white px-3 py-2 text-base text-gray-900 outline outline-1 outline-gray-300 placeholder:text-gray-400">
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="flex gap-2 items-center">
+                    <input id="remember-me" name="remember-me" type="checkbox"
+                        class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600">
+                    <label for="remember-me" class="text-sm text-gray-900">Recordarme</label>
+                </div>
+                <div class="text-sm">
+                    <a routerLink="/recuperar" class="font-semibold text-blue-600 hover:text-blue-500">¿Olvidaste tu
+                        contraseña?</a>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit"
+                    class="flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-500 transition">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </form>
+
+        <p *ngIf="error" class="text-sm text-red-600 text-center">{{ error }}</p>
+
+<p class="text-center text-sm text-gray-700 mt-4">
+    ¿No tienes una cuenta?
+<button type="button" (click)="irARegistro()" class="text-blue-600 hover:text-blue-500 font-medium cursor-pointer">
+    Regístrate
+</button>
+</p>
+    </div>
+</div>

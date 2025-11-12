@@ -1,0 +1,41 @@
+<div class="h-screen flex items-center justify-center bg-cover bg-no-repeat bg-center"
+    style="background-image: url('https://agn.gt/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-15-at-13.44.00.jpeg');">
+
+    <div class="bg-white/80 backdrop-blur-md shadow-lg rounded-xl p-8 w-full max-w-lg">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Crea tu cuenta</h2>
+        <p class="text-center text-gray-600 mb-6">Ingresa tus datos para registrarte</p>
+
+        <form (ngSubmit)="registrarse()" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombres" class="input" required>
+                <input type="text" [(ngModel)]="apellido" name="apellido" placeholder="Apellidos" class="input"
+                    required>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="email" [(ngModel)]="email" name="email" placeholder="Correo" class="input" required>
+                <input type="text" [(ngModel)]="dpi" name="dpi" placeholder="DPI" class="input" required>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" class="input"
+                    required>
+                <input type="text" [(ngModel)]="telefono" name="telefono" placeholder="Teléfono" class="input" required>
+            </div>
+
+            <textarea [(ngModel)]="direccion" name="direccion" placeholder="Dirección" class="input h-24 resize-none"
+                required></textarea>
+
+            <div *ngIf="error" class="text-red-600 text-sm text-center">{{ error }}</div>
+            <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 rounded-md transition font-semibold cursor-pointer">
+                Registrarme
+            </button>
+            <p class="text-center text-sm text-gray-700 mt-4">
+                ¿Ya tienes una cuenta?
+                <a routerLink="/login" class="text-blue-600 hover:text-blue-500 font-medium">Inicia sesión</a>
+            </p>
+        </form>
+    </div>
+</div>
+
